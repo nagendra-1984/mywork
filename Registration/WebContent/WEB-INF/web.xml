@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Registration</display-name>
+  <welcome-file-list>
+    <welcome-file>Home.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>UserServlet</display-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.neoteric.it.servlet.UserServlet</servlet-class>
+    <init-param>
+      <param-name>CompanyName</param-name>
+      <param-value>Neoteric</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Country</param-name>
+      <param-value>United States of America</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>myFilter</filter-name>
+    <filter-class>com.neoteric.it.servlet.filter.SimpleServletFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>myFilter</filter-name>
+    <url-pattern>/UserServlet</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxServlet</display-name>
+    <servlet-name>AjaxServlet</servlet-name>
+    <servlet-class>com.neoteric.it.servlet.AjaxServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxServlet</servlet-name>
+    <url-pattern>/AjaxServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

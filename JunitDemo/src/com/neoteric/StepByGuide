@@ -1,0 +1,19 @@
+Create Test Case Class
+Create a java test class say TestJunit.java.
+
+Add a test method testPrintMessage() to your test class.
+
+Add an Annotaion @Test to method testPrintMessage().
+
+Implement the test condition and check the condition using assertEquals API of Junit.
+
+Create Test Runner Class
+Create a TestRunner java class.
+
+Use runClasses method of JUnitCore class of JUnit to run test case of above created test class
+
+Get the result of test cases run in Result Object
+
+Get failure(s) using getFailures() methods of Result object
+
+Get Success result using wasSuccessful() methods of Result object

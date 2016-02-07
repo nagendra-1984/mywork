@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+    default-init-method="init" default-destroy-method="destroy">
+
+   <bean id="customerimpl" class="com.neoteric.aop.CustomerImpl">
+   </bean>
+
+	<bean id="cafeowner" class="com.neoteric.aop.CafeOwner"/>
+	<bean id="internetadvice" class="com.neoteric.aop.InternetAdvice">
+		<property name="cafeOwner" ref="cafeowner"></property>
+	</bean>
+	
+	<!-- Configuring Point Cut Advisor -->
+	<!-- This Bean defines which Aspect class should be used for advising and for which patterns of Method Name -->
+	<bean id="cafeOwnerBeforeAndAfterAdvice" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice">
+			<ref local="internetadvice"/>
+		</property>
+		<property name="pattern">
+			<value>.*</value>
+		</property>		
+	</bean>	
+	
+	<!-- Configuring Proxy Factory Bean which the caller calls  -->
+	
+	<bean id="customerProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target">
+			<ref local="customerimpl"></ref>
+		</property>
+		<property name="proxyInterfaces">
+			<value>com.neoteric.aop.Customer</value>
+		</property>
+		<property name="interceptorNames">
+			<list>			
+			<value>cafeOwnerBeforeAndAfterAdvice</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+</beans>

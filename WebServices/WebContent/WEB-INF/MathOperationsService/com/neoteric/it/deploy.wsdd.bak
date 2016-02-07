@@ -1,0 +1,41 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MathOperationsService WSDL service -->
+
+  <service name="MathOperations" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://it.neoteric.com"/>
+      <parameter name="wsdlServiceElement" value="MathOperationsService"/>
+      <parameter name="schemaQualified" value="http://it.neoteric.com"/>
+      <parameter name="wsdlServicePort" value="MathOperations"/>
+      <parameter name="className" value="com.neoteric.it.MathOperationsSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="MathOperations"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getProduct" qname="operNS:getProduct" xmlns:operNS="http://it.neoteric.com" returnQName="retNS:getProductReturn" xmlns:retNS="http://it.neoteric.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:premiumVO" xmlns:pns="http://it.neoteric.com" type="tns:PremiumVO" xmlns:tns="http://it.neoteric.com"/>
+      </operation>
+      <operation name="getDifference" qname="operNS:getDifference" xmlns:operNS="http://it.neoteric.com" returnQName="retNS:getDifferenceReturn" xmlns:retNS="http://it.neoteric.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getSum" qname="operNS:getSum" xmlns:operNS="http://it.neoteric.com" returnQName="retNS:getSumReturn" xmlns:retNS="http://it.neoteric.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getProduct getDifference getSum"/>
+
+      <typeMapping
+        xmlns:ns="http://it.neoteric.com"
+        qname="ns:PremiumVO"
+        type="java:com.neoteric.it.PremiumVO"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

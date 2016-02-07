@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.ancestors * { 
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("span").method.css({"color": "red"});
+});
+
+function getParents(){
+	alert("^%^ Parents ^%^ "+$("span").parents("li").text());
+	
+}
+
+function getChilds(){
+	alert("^%^ childs ^%^ "+$("div").find("ul").text());
+	
+}
+</script>
+</head>
+<body>
+
+<div class="ancestors">
+  <div style="width:500px;">Hello World Great Grand Parent
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+    </ul>   
+  </div>
+</div>
+
+<button id="parentButton" onClick="getParents();">Get Parent Details</button>
+<button id="parentButton" onClick="getChilds();">Get Child Details</button>
+
+</body>
+</html>
