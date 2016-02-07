@@ -7,7 +7,7 @@ import org.junit.Test;
 public class AssertMethodsJUnit {
 	
 	@Test
-	   public void testAdd() {
+    public void testAdd() {
 	      //test data
 	      int num= 5;
 	      String temp= null;

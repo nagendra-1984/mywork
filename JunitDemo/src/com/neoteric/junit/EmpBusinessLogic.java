@@ -17,8 +17,8 @@ public class EmpBusinessLogic {
 	      }else{
 	         appraisal = 1000;
 	      }
-	     // return appraisal;
-	      throw new ArithmeticException();
+	     return appraisal;
+	      //throw new ArithmeticException();
 	   }
 
 }
