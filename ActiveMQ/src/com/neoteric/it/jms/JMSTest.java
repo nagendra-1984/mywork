@@ -86,7 +86,7 @@ public class JMSTest extends HttpServlet {
 
 	        out.println("<h1>" + title + "</h1>");
 
-	        out.println("<p>The message contains many \"" + body + "\".</p>");
+	        out.println("<p>The message contains many changes\"" + body + "\".</p>");
 
 	        out.println("</body>");
 	        out.println("</html>");
