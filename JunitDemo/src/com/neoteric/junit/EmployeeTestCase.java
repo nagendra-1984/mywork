@@ -26,7 +26,7 @@ public class EmployeeTestCase extends TestCase{
 	   // Postive Test 1
 	   // Specify the Method Execution turn around time by using the Time Out Options.
 	   //test to check appraisal
-	   @Test(timeout=1000,expected = ArithmeticException.class)
+	  // @Test(timeout=1000,expected = ArithmeticException.class)
 	   public void testPostiveCalculateAppriasal() {
 		      double appraisal= empBusinessLogic.calculateAppraisal(employee);
 		      //Thread.sleep(3000);

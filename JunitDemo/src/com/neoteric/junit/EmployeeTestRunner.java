@@ -7,7 +7,7 @@ import org.junit.runner.notification.Failure;
 public class EmployeeTestRunner {
 
 	public static void main(String[] args) {
-	      Result result = JUnitCore.runClasses(EmployeeTestCase.class);
+	      Result result = JUnitCore.runClasses(EmployeeSuiteClass.class);
 	      for (Failure failure : result.getFailures()) {
 	         System.out.println(failure.toString());
 	      }

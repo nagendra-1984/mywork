@@ -10,6 +10,10 @@ import org.junit.Test;
 @Ignore
 public class TestAssertionsMethods {
 	
+	public TestAssertionsMethods() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	
 	@Test

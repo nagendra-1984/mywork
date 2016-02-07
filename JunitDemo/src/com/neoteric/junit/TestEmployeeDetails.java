@@ -18,6 +18,10 @@ public class TestEmployeeDetails {
 
 	   static EmpBusinessLogic empBusinessLogic =null;
 	   static EmployeeDetails employee = null;
+	   
+	   public TestEmployeeDetails() {
+		// TODO Auto-generated constructor stub
+	}
 
 	   // Execute this method only once in the starting 
 	   @BeforeClass
@@ -28,15 +32,6 @@ public class TestEmployeeDetails {
 		   
 	   }
 	
-	   // Constructor used by the Parametrized running class
-	   public TestEmployeeDetails(String strName,int age,int monthlySal){
-		   System.out.println("^%^ Creating new Employee Object &^&");
-		   employee.setName(strName);
-		   employee.setAge(age);
-		   employee.setMonthlySalary(monthlySal);
-		   
-	   }
-	   
 	   
 	   //Execute this method for each test 
 	   @Before
@@ -50,8 +45,8 @@ public class TestEmployeeDetails {
 	   // Test 1
 	   // Specify the Method Execution turn around time by using the Time Out Options.
 	   //test to check appraisal
-	   @Test(timeout=1000,expected = ArithmeticException.class)
-	   public void testCalculateAppriasal() {
+	   @Test(timeout=1000)
+	   public void verifyCalculateAppriasal() {
 		 
 		      double appraisal= empBusinessLogic.calculateAppraisal(employee);
 		      //Thread.sleep(3000);
@@ -60,10 +55,11 @@ public class TestEmployeeDetails {
 
 	   // Test 1 with Ignore option
 	   // test to check yearly salary
-	   @Ignore
+	  @Test(timeout=1000)
 	   public void testCalculateYearlySalary() {
 	      double salary= empBusinessLogic.calculateYearlySalary(employee);
-	      assertEquals(96000, salary, 0.0);
+	      assertEquals(95850, salary, 100.0);
+	      
 	   }
 	   
 
